@@ -1,7 +1,6 @@
+//reset password page for mainlayout
+
 ResetPassword = React.createClass({
-  componentDidMount() {
-    Modules.client.resetPassword( { form: "#reset-password" } );
-  },
   handleSubmit( event ) {
     event.submitHandler();
   },

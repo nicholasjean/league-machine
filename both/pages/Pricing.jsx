@@ -1,3 +1,5 @@
+//pricing page for mainlayout
+
 Pricing = React.createClass({
   render() {
     return (

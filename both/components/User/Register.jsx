@@ -1,11 +1,16 @@
+//sign up page for mainlayout
+
 Register = React.createClass({
-  componentDidMount() {
-    Modules.client.signup({
-      form: "#signup"
-    });
-  },
   handleSubmit( event ) {
     event.preventDefault();
+    var emailVar = ReactDOM.findDOMNode(this.refs.emailAddress).value.trim();
+    var passwordVar = ReactDOM.findDOMNode(this.refs.password).value.trim();
+    var retypePassword = ReactDOM.findDOMNode(this.refs.retypePassword).value.trim();
+    Accounts.createUser({
+      email:emailVar,
+      password:passwordVar
+    });
+    return FlowRouter.path( '/' );
   },
   render() {
       var style = {
@@ -25,15 +30,15 @@ Register = React.createClass({
           <form id="signup" className="signup" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="emailAddress" style={style.label}>Email Address</label>
-              <input type="email" name="emailAddress" className="form-control" placeholder="Email Address" />
+              <input type="email" ref="emailAddress" name="emailAddress" className="form-control" placeholder="Email Address" />
             </div>
             <div className="form-group">
               <label htmlFor="password" style={style.label}>Password</label>
-              <input type="password" name="password" className="form-control" placeholder="Password" />
+              <input type="password" ref="password" name="password" className="form-control" placeholder="Password" />
             </div>
              <div className="form-group">
               <label htmlFor="retypePassword" style={style.label}>Retype Password</label>
-              <input type="password" name="retypePassword" className="form-control" placeholder="Retype Password" />
+              <input type="password" ref="retypePassword" name="retypePassword" className="form-control" placeholder="Retype Password" />
             </div>
             <div className="form-group">
               <input type="submit" className="btn btn-success" value="Register" />

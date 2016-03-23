@@ -1,3 +1,5 @@
+//this is the layout for mainlayout
+
 MainLayout = React.createClass({
   render() {
     return (

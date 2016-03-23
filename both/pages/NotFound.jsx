@@ -1,3 +1,5 @@
+//this page shows up when the url is not found
+
 NotFound = React.createClass({
   render() {
     return (

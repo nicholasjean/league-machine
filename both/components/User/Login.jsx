@@ -1,9 +1,12 @@
+//Login page for mainlayout
+
 Login = React.createClass({
-  componentDidMount() {
-    Modules.client.login( { form: "#login" } );
-  },
   handleSubmit( event ) {
     event.preventDefault();
+    var email = ReactDOM.findDOMNode(this.refs.emailAddress).value.trim();
+    var password = ReactDOM.findDOMNode(this.refs.password).value.trim();
+    Meteor.loginWithPassword(email,password);
+    FlowRouter.path( '/' );
   },
   render() {
     var style = {
@@ -20,11 +23,11 @@ Login = React.createClass({
           <form id="login" className="login" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label htmlFor="emailAddress" style={style.label}>Email Address</label>
-              <input type="email" name="emailAddress" className="form-control" placeholder="Email Address" />
+              <input type="email" ref="emailAddress" name="emailAddress" className="form-control" placeholder="Email Address" />
             </div>
             <div className="form-group">
               <label htmlFor="password" style={style.label}><span className="pull-left">Password</span> <a className="pull-right" href="/recover-password">Forgot Password?</a></label>
-              <input type="password" name="password" className="form-control" placeholder="Password" />
+              <input type="password" ref="password" name="password" className="form-control" placeholder="Password" />
             </div>
             <div className="form-group">
               <input type="submit" className="btn btn-success" value="Login" />

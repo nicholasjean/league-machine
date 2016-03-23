@@ -1,3 +1,5 @@
+//footer for mainlayoout
+
 Footer = React.createClass({
   render() {
       var footerStyle = {

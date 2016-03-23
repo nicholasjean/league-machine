@@ -1,12 +1,10 @@
-//blog page for mainlayout
-
-Blog = React.createClass({
+Teams = React.createClass({
   render() {
     return (
     <div className="container">
     <div className="section">
         <div>
-            <h1>Blog</h1>
+            <h1>Teams</h1>
         </div>
 
         </div>

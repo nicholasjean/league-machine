@@ -1,9 +1,6 @@
+//recover password page for mainlayout
+
 RecoverPassword = React.createClass({
-  componentDidMount() {
-    Modules.client.recoverPassword({
-      form: "#recover-password"
-    });
-  },
   handleSubmit( event ) {
     event.preventDefault();
   },
